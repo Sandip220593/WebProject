@@ -3,6 +3,7 @@ $(document)
 				function() {
 					$('#tablediv').hide();
 					$('#showButton').click(function() {
+						showLoader();
 						var param = $('#uname').val();
 						var actionURL = 'Action';
 						var postData = "userName=" + param;
@@ -52,10 +53,19 @@ $(document)
 							
 							$("#userTable").find('tbody').append(tr);
 						}
-						
+						hideLoader();
 						$('#tablediv').show();
 						$('#uname').hide();
 						$('#showButton').attr('disabled',true);
 						customUserDetailTable();
+					}
+					
+					function showLoader(){
+						document.getElementById("myNav").style.display = "block";
+					}
+					
+					function hideLoader()
+					{
+						document.getElementById("myNav").style.display = "none";
 					}
 				});

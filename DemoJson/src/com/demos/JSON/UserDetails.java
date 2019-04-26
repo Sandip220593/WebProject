@@ -1,7 +1,10 @@
 package com.demos.JSON;
 
+import java.util.ArrayList;
+
 import javax.json.JsonObject;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class UserDetails {
@@ -21,7 +24,7 @@ public class UserDetails {
 	private String u_street;
 	private String u_city;
 	private String u_pincode;
-	private ImageDetails[] imageDetails;
+	private ArrayList<ImageDetails> images;
 	
 	public int getU_id() {
 		return u_id;
@@ -79,12 +82,12 @@ public class UserDetails {
 		this.u_pincode = u_pincode;
 	}
 
-	public ImageDetails[] getImageDetails() {
-		return imageDetails;
+	public ArrayList<ImageDetails> getImages() {
+		return images;
 	}
 
-	public void setImageDetails(ImageDetails[] imageDetails) {
-		this.imageDetails = imageDetails;
+	public void setImages(ArrayList<ImageDetails> images) {
+		this.images = images;
 	}
 
 	public JSONObject getJSON() {
@@ -97,7 +100,16 @@ public class UserDetails {
 		jsonObject.put(USER_ADDRESS_STREET, this.u_street);
 		jsonObject.put(USER_ADDRESS_CITY, this.u_city);
 		jsonObject.put(USER_ADDRESS_PINCODE, this.u_pincode);
-		
+		if(this.getImages()!=null)
+		{
+			JSONArray imagesArray = new JSONArray();
+			
+			for(ImageDetails imgDetails : this.getImages())
+			{
+				imagesArray.add(imgDetails.getJSON());
+			}
+			jsonObject.put(IMAGE_ARRAY, imagesArray);
+		}
 		return jsonObject;
 	}
 }

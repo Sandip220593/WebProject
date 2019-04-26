@@ -2,8 +2,8 @@ package com.demos.JSON;
 
 public class PurchaseDetails {
 	public static final String PURCHASE_ID = "col_purchase_id";
-	public static final String PURCHASE_BUYER_ID = "col_purchase_buyer_id";
-	public static final String PURCHASE_IMAGE_ID = "col_purchase_image_id";
+	public static final String PURCHASE_BUYER_ID = "col_user_info_id";
+	public static final String PURCHASE_IMAGE_ID = "col_image_id";
 	public static final String PURCHASE_DATE = "col_purchase_date";
 
 	private int purchase_id;

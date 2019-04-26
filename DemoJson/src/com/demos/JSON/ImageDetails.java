@@ -58,7 +58,7 @@ public class ImageDetails {
 	public JSONObject getJSON(){
 		JSONObject jsonObject = new JSONObject();
 		
-		jsonObject.put(IMG_CLICKED_DATE, this.img_id);
+		jsonObject.put(IMG_ID, this.img_id);
 		jsonObject.put(IMG_NAME, this.img_name);
 		jsonObject.put(IMG_CLICKED_DATE, this.img_clkdate);
 		jsonObject.put(IMG_ARTIST, this.img_artist);
